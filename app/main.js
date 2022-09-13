@@ -2,15 +2,16 @@ const { app, BrowserWindow } = require('electron');
 
 let mainWindow = null;
 
-// Quit when all windows are closed.
 app.on('ready', () => {
-    mainWindow = new BrowserWindow( { show: false}); // Create the browser window.
+  mainWindow = new BrowserWindow({ show: false });
 
-    mainWindow.loadFile(`${__dirname}/index.html`); // Load a local HTML file
+  mainWindow.loadFile(`${__dirname}/index.html`);
 
-    mainWindow.once('ready-to-show', () => {
-        mainWindow.show(); // Show window when page is ready
-    });
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+  });
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 });
-
-console.log('starting up');
