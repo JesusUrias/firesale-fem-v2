@@ -2,6 +2,7 @@ const { app, BrowserWindow } = require('electron');
 
 let mainWindow = null;
 
+// Quit when all windows are closed.
 app.on('ready', () => {
     mainWindow = new BrowserWindow( { show: false}); // Create the browser window.
 
